@@ -5,31 +5,31 @@ matrix:
     fast_finish: true
     include:
       - env: TEST_SUITE=danger 
-      - env: TEST_SUITE=jsfm
-      - env: TEST_SUITE=android ABI=armeabi-v7a
-        language: android
-        dist: trusty
-        jdk: oraclejdk8
-        android:
-          components:
-            - android-26
-            - extra-android-m2repository
-      - env: TEST_SUITE=android ABI=arm64-v8a
-        language: android
-        dist: trusty
-        jdk: oraclejdk8
-        android:
-          components:
-            - android-26
-            - extra-android-m2repository
-      - env: TEST_SUITE=android ABI=x86
-        language: android
-        dist: trusty
-        jdk: oraclejdk8
-        android:
-          components:
-            - android-26
-            - extra-android-m2repository
+      # - env: TEST_SUITE=jsfm
+      # - env: TEST_SUITE=android ABI=armeabi-v7a
+      #   language: android
+      #   dist: trusty
+      #   jdk: oraclejdk8
+      #   android:
+      #     components:
+      #       - android-26
+      #       - extra-android-m2repository
+      # - env: TEST_SUITE=android ABI=arm64-v8a
+      #   language: android
+      #   dist: trusty
+      #   jdk: oraclejdk8
+      #   android:
+      #     components:
+      #       - android-26
+      #       - extra-android-m2repository
+      # - env: TEST_SUITE=android ABI=x86
+      #   language: android
+      #   dist: trusty
+      #   jdk: oraclejdk8
+      #   android:
+      #     components:
+      #       - android-26
+      #       - extra-android-m2repository
 cache:
   directories:
     - npm
