@@ -289,12 +289,11 @@ function checkMileStone() {
     number: danger.github.pr.number,
     headers: {Accept: 'application/vnd.github.diff',"user-agent": "node.js"}
   }, function (err, result) {
-    console.log('result:'+result+', error:'+err);
-    // console.log()
+    console.log(result.counts)
+    console.log(result[0])
   });
 }
 checkMileStone()
-
 /*
  * try to find the appropriate reviewer according to the blame info
  * will be seperated to a danger plugin
@@ -494,3 +493,4 @@ message('danger test finished.')
 /*
  * find reviewer end
  */
+
