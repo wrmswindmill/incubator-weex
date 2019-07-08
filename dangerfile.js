@@ -282,6 +282,7 @@ function checkMileStone() {
     host: "api.github.com",
   });
 
+  var repoName = danger.github.pr.base.repo && danger.github.pr.base.repo.name
   github.pullRequests.get({
     owner: danger.github.pr.base.user.login,
     repo: repoName,
@@ -289,6 +290,7 @@ function checkMileStone() {
     headers: {Accept: 'application/vnd.github.diff',"user-agent": "node.js"}
   }, function (err, result) {
     console.log('result:'+result+', error:'+err);
+    // console.log()
   });
 }
 checkMileStone()
