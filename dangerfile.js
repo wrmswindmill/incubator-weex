@@ -276,6 +276,23 @@ filesToVerifySrcHeader.forEach(filepath => {
 });
 
 
+function checkMileStone() {
+  var github = new GitHubApi({
+    protocol: "https",
+    host: "api.github.com",
+  });
+
+  github.pullRequests.get({
+    owner: danger.github.pr.base.user.login,
+    repo: repoName,
+    number: danger.github.pr.number,
+    headers: {Accept: 'application/vnd.github.diff',"user-agent": "node.js"}
+  }, function (err, result) {
+    console.log('result:'+result+', error:'+err);
+  });
+}
+checkMileStone()
+
 /*
  * try to find the appropriate reviewer according to the blame info
  * will be seperated to a danger plugin
