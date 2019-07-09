@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { schedule, danger, fail, warn, message, markdown } from "danger";
+// Removed import
 import fs from "fs";
 import path from 'path';
 import GitHubApi from 'github';
@@ -271,20 +271,16 @@ filesToVerifySrcHeader.forEach(filepath => {
     console.error("Code file "+ filepath +" has cn source code.");
     console.error("position " + reg.exec(content));
     fail("Code file "+ filepath +" has cn source code.");
-    return ;
+    return;
   }
 });
 
-
-function checkMileStone() {
-  console.log("checkMileStone")
-  if("undefined" === typeof danger.github.pr.milestone){
-    console.errer("current pr not bind the milestone")
-    fail("current pr not bind the milestone")
-    return;
-  }
+// check if pr bind the github milestone
+console.log("checkMileStone")
+if(!danger.github.pr.milestone){
+  console.error("current pr not bind the milestone");
+  fail("current pr not bind the milestone");
 }
-checkMileStone()
 /*
  * try to find the appropriate reviewer according to the blame info
  * will be seperated to a danger plugin
