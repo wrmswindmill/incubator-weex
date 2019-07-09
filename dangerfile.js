@@ -277,21 +277,12 @@ filesToVerifySrcHeader.forEach(filepath => {
 
 
 function checkMileStone() {
-  var github = new GitHubApi({
-    protocol: "https",
-    host: "api.github.com",
-  });
-
-  var repoName = danger.github.pr.base.repo && danger.github.pr.base.repo.name
-  github.pullRequests.get({
-    owner: danger.github.pr.base.user.login,
-    repo: repoName,
-    number: danger.github.pr.number,
-    headers: {Accept: 'application/vnd.github.diff',"user-agent": "node.js"}
-  }, function (err, result) {
-    console.log(result.counts)
-    console.log(result[0])
-  });
+  console.log("checkMileStone")
+  if("undefined" === typeof danger.github.pr.milestone){
+    console.errer("current pr not bind the milestone")
+    fail("current pr not bind the milestone")
+    return;
+  }
 }
 checkMileStone()
 /*
