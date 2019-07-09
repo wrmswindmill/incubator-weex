@@ -21,7 +21,7 @@ import fs from "fs";
 import path from 'path';
 import GitHubApi from 'github';
 import parseDiff from 'parse-diff';
-
+const includes = require('lodash.includes');
 // Make sure there are changelog entries
 const hasChangelog = danger.git.modified_files.includes("changelog.md")
 if (!hasChangelog) { warn("No Changelog changes!") }
@@ -69,7 +69,6 @@ if (!includesTestPlan) {
     'A Test Plan lets us know how these changes were tested.';
   message(`${title} - <i>${idea}</i>`);
 }
-
 
 const flowIgnorePaths = [
   'node_modules',
