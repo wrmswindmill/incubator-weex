@@ -170,7 +170,12 @@ script:
           -max-priority-1=15000 \
           -max-priority-2=15000 \
           -max-priority-3=15000 > oclint.log
-        cat oclint.log | grep -i "P[1|2]" | danger_output
+        cd ../../ && echo 'import { schedule, danger, fail, warn, message, markdown } from "danger";' > danger-output.js
+        echo "var command = 'cat ios/sdk/oclint.log | grep -i \"P[1|2]\"'" >> danger-output.js
+        echo 'import shell from "shelljs";' >> danger-output.js
+        echo "var output = shell.exec(command).output;" >> danger-output.js
+        echo "warn(output);" >> dangerfile-output.js
+        npm run danger --dangerfile ./dangerfile-output.js
       fi
     fi 
 
