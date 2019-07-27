@@ -4,7 +4,7 @@ const shell = require('shelljs')
 const command = process.env.COMMAND
 const child = shell.exec(command)
 
-if (child.stderr !== '') {
+if (child.stdout !== '') {
   warn(child.stdout)
 }
 if (child.stderr !== '') {

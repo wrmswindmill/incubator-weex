@@ -187,7 +187,9 @@ script:
         # echo "hasAndroidFile"
         echo "run android lint"
         cd android
-        ./gradlew lint
+        ./gradlew lint --quiet
+        export COMMAND="cat /home/travis/build/wrmswindmill/incubator-weex/android/sdk/build/reports/lint-results.xml"
+        cd ../ && npm run danger -- run --dangerfile ./dangerfile-output.js
       fi
     fi
 
