@@ -134,7 +134,7 @@ script:
         npm run danger -- run --dangerfile ./dangerfile-jsfm.js
         ;;
       "danger" )
-        npm run danger -- run --new-comment --danger_id=danger --dangerfile ./dangerfile.js
+        npm run danger -- run --danger_id=danger --dangerfile ./dangerfile.js
         ;;
       "ios" )
         hasIosFile=$(npm run danger -- run --dangerfile ./dangerfile-ios.js)
@@ -172,7 +172,7 @@ script:
           -max-priority-2=15000 \
           -max-priority-3=15000 > oclint.log
         export COMMAND="cat ios/sdk/oclint.log | grep -i \"P[1|2]\""
-        cd ../../ && npm run danger -- run --new-comment --danger_id=oclint --dangerfile ./dangerfile-output.js
+        cd ../../ && npm run danger -- run --danger_id=oclint --dangerfile ./dangerfile-output.js
       fi
     fi 
 
