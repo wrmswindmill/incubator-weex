@@ -190,7 +190,7 @@ script:
         cd android
         ./gradlew lint --quiet
         export COMMAND="cat android/sdk/build/reports/lint-results.xml"
-        cd ../ && npm run danger -- run --dangerfile ./dangerfile-output.js
+        cd ../ && npm run danger -- run --new-comment --dangerfile ./dangerfile-output.js
       fi
     fi
 
