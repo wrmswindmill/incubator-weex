@@ -131,10 +131,10 @@ script:
         fi
         ;;
       "jsfm" )
-        npm run danger -- run --dangerfile --dangerID=jsfm ./dangerfile-jsfm.js
+        npm run danger -- run --dangerfile ./dangerfile-jsfm.js --dangerID=jsfm
         ;;
       "danger" )
-        npm run danger -- run  --dangerfile --dangerID=danger ./dangerfile.js
+        npm run danger -- run  --dangerfile ./dangerfile.js --dangerID=danger
         ;;
       "ios" )
         hasIosFile=$(npm run danger -- run --dangerfile ./dangerfile-ios.js)
